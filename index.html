@@ -3522,13 +3522,12 @@ updateSummary();
             const hand = (state.hand === 'left' ? 'Left Hand' : 'Right Hand') + ' ' + (state.swing === 'in' ? 'Inswing' : 'Outswing');
             const bullets = [];
             bullets.push('(1) ' + pairCall + ' - ' + (state.doorThickIn || '1.75') + '" ' + (q.style || '') + (slabOnlyNow ? ' (Slab Only) (No Frame)' : frameOnlyNow ? ' (Frame Only) (No Slab)' : ''));
-            bullets.push(state.stockType === 'special' ? 'SPECIAL ORDER — do not deduct inventory' : 'STOCK — deduct this SKU from inventory');
+            bullets.push(state.stockType === 'special' ? 'SPECIAL ORDER' : 'STOCK');
             if (q.sidelights && q.sidelights !== 'None') bullets.push(q.sidelights);
             if (!slabOnlyNow) {
                 bullets.push((q.jamb || 'Frame') + ', ' + hand + ', Continuous Head And Sill');
                 bullets.push('Jamb sides: ' + (state.jambWidthIn || '') + '"');
                 bullets.push('Jamb head: ' + (state.jambWidthIn || '') + '"');
-                bullets.push('Frame over slab = 2 5/8" difference. 6/8 = 79" slab / 81 5/8" frame. 7/0 = 83" / 85 5/8". 8/0 = 95" / 97 5/8".');
                 bullets.push('Frame size: ' + (q.frame || '') + ' · Slab: ' + (q.slab || ''));
             }
             if (frameOnlyNow) bullets.push('FRAME ONLY — no slab supplied, do not pull a door from inventory');
@@ -3599,7 +3598,7 @@ updateSummary();
                 + '</table></div></div>'
                 + '<div class="job">' + esc(q.jobname || q.jobref) + (q.jobaddr ? '<br>' + esc(q.jobaddr) : '') + '</div>'
                 + '<div class="flags">' + flagLine + '</div>'
-                + '<div class="desc"><strong>Description</strong><div>' + esc(state.stockType === 'special' ? 'SPECIAL ORDER — DO NOT DEDUCT INVENTORY' : 'STOCK — DEDUCT FROM INVENTORY') + '<br>' + esc(q.orderDesc || '') + (q.orderDesc ? '<br>' : '') + esc(pairCall) + ' - ' + esc(state.doorThickIn || '1.75') + '" ' + esc(q.style || '') + ' - ' + esc(hand) + (slabOnlyNow ? ' (Slab Only)' : frameOnlyNow ? ' (Frame Only)' : '') + '</div></div>'
+                + '<div class="desc"><strong>Description</strong><div>' + esc(state.stockType === 'special' ? 'SPECIAL ORDER' : 'STOCK') + '<br>' + esc(q.orderDesc || '') + (q.orderDesc ? '<br>' : '') + esc(pairCall) + ' - ' + esc(state.doorThickIn || '1.75') + '" ' + esc(q.style || '') + ' - ' + esc(hand) + (slabOnlyNow ? ' (Slab Only)' : frameOnlyNow ? ' (Frame Only)' : '') + '</div></div>'
                 + '<h2>Notes</h2><div class="notes">' + notesHtml + '</div>'
                 + '<table>'
                 + '<tr><td class="k">R.O.</td><td>' + esc(q.ro) + '</td></tr>'
