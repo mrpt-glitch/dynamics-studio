@@ -545,7 +545,7 @@
                         <p class="section-label">Door size <button type="button" class="tip-btn" data-tip="call" aria-label="Door size tip">i</button></p><div class="tip-pop" id="tip-call" hidden>Frame over slab = 2⅝″ on height. 6/8 = 79″ slab / 81⅝″ frame. 7/0 = 83″ / 85⅝″. 8/0 = 95″ / 97⅝″. A 3/0 slab is 35¹³⁄₁₆″ × 79″; the frame is 36″ × 81⅝″. Ticket prints both.</div>
                         <div class="spec-fields">
                             <label>Width (in)<input id="size-w" type="text" inputmode="decimal" value="36" placeholder="36 or 3/0"></label>
-                            <label>Height (in)<input id="size-h" type="text" inputmode="decimal" value="80" placeholder="80 or 6/8"></label>
+                            <label>Height (in)<input id="size-h" type="text" inputmode="decimal" value="79" placeholder="79 or 6/8"></label>
                         </div>
                     </div>
                     <div class="control-block">
@@ -567,17 +567,9 @@
                         </div>
                         <p class="section-label" style="margin-top:14px;">Height</p>
                         <div class="segmented">
-                            <button class="segment active" data-door-height="80">6/8</button>
-                            <button class="segment" data-door-height="84">7/0</button>
-                            <button class="segment" data-door-height="96">8/0</button>
-                        </div>
-                        <div class="size-card" id="size-formula">
-                            <p class="formula">Frame over slab = 2⅝″ difference. 6/8 = 79″ slab / 81⅝″ frame. 7/0 = 83″ / 85⅝″. 8/0 = 95″ / 97⅝″.</p>
-                            <div class="ro-grid">
-                                <div><span>Slab</span><b id="live-slab">35¹³⁄₁₆″ × 79″</b></div>
-                                <div><span>Frame</span><b id="live-frame">36″ × 81⅝″</b></div>
-                                <div><span>Over slab</span><b id="live-over">2⅝″ height</b></div>
-                            </div>
+                            <button class="segment active" data-door-height="79">6/8</button>
+                            <button class="segment" data-door-height="83">7/0</button>
+                            <button class="segment" data-door-height="95">8/0</button>
                         </div>
                     </div>
                     <div class="control-block">
@@ -590,13 +582,12 @@
                         <p class="review-note" id="unit-mode-note">Full unit prints slab + jamb. Slab only machines a door with no frame. Frame only builds the jamb with no slab — inventory is not pulled for a door.</p>
                     </div>
                     <div class="control-block">
-                        <p class="section-label">Inventory</p>
+                        <p class="section-label">Inventory <button type="button" class="tip-btn" data-tip="stock" aria-label="Inventory tip">i</button></p>
+                        <div class="tip-pop" id="tip-stock" hidden>This SKU deducts from inventory. Do not write “special order” in the description if it is a stock slab.</div>
                         <div class="segmented">
                             <button class="segment active" data-stock="stock">Stock — deduct</button>
                             <button class="segment" data-stock="special">Special order</button>
                         </div>
-                        <div class="ok-banner" id="stock-ok">This SKU deducts from inventory. Do not write “special order” in the description if it is a stock Therma-Tru or Simpson slab.</div>
-                        <div class="warn-banner" id="stock-warn" hidden>Special order does <strong>not</strong> deduct from inventory. Use this only if purchasing outside stock. A flush steel Therma-Tru that is on the shelf is STOCK — pick Stock, not Special.</div>
                         <label class="section-label" style="margin-top:12px;display:block;">Description (sales line — not notes)
                             <input id="order-desc" type="text" placeholder="PO #, job line — not inventory status" style="width:100%;margin-top:5px;padding:9px 10px;border:1px solid var(--line);font:600 13px DM Sans,sans-serif;">
                         </label>
@@ -1267,7 +1258,7 @@
 
         const state = {
             style: 'SSF1100', finish: 'primed', hand: 'left', swing: 'in', doubleDoor: false,
-            doorWidthIn: '36', doorHeightIn: '80', doorThickIn: '1.75', sidelightWidthIn: '14',
+            doorWidthIn: '36', doorHeightIn: '79', doorThickIn: '1.75', sidelightWidthIn: '14',
             frame: 'none', brickmould: 'primed', jambFinish: 'primed', jambWidthIn: '4.5625', jambFinishCustom: '', brickmouldCustom: '', weatherstripReach: 'medium', cladding: false, cladWidthIn: '4.5625', cladExtension: false, cladExtensionIn: '', cladColorCustom: '',
             claddingProfile: 'brickmould', claddingColor: 'sand', transom: false, transomShape: 'rectangular',
             sidelights: 'none', slLites: '1', fatMullion: false, glass: 'clear', hardware: 'pull', metal: 'black',
@@ -1345,7 +1336,7 @@
             jambWidth: { '4.5625': 0, '6.5625': 90, '6.8125': 110 },
             sweep: { none: 0, vinyl: 65, oak: 95, composite: 80 },
             doorWidth: { '30': -180, '32': -90, '36': 0, '42': 280, '48': 520 },
-            doorHeight: { '80': -220, '84': -110, '96': 0 },
+            doorHeight: { '79': -220, '80': -220, '83': -110, '84': -110, '95': 0, '96': 0 },
             sidelightWidth: { '12': -60, '14': 0 },
             sidelights: { none: 0, left: 1180, right: 1180, both: 2190 },
             hardware: { pull: 0, lever: -120, knob: -180, smart: 430, multipoint: 890, boreOnly: -280 },
@@ -1769,7 +1760,7 @@
             const z = .25;
             const bottom = -doorHeight / 2;
             const top = doorHeight / 2;
-            const doorHIn = Math.max(24, Number(state.doorHeightIn) || 96);
+            const doorHIn = Math.max(24, Number(state.doorHeightIn) || 79);
             const qty = Math.max(0, parseInt(state.boreQty || '0', 10));
             const locIn = Number(state.boreLocIn) || 36;
             const spaceIn = Number(state.boreSpaceIn) || 5.5;
@@ -1806,7 +1797,7 @@
                 box(.4, .06, .06, materials.metal, x - .16 * mirror, boreY, z + .03, parent);
                 cylinder(.05, .035, materials.metal, x, boreY + .5, z, [Math.PI / 2, 0, 0], parent);
                 const edgeX = mirror * (doorWidth / 2);
-                const points = Number(state.doorHeightIn) >= 96 ? 4 : 3;
+                const points = Number(state.doorHeightIn) >= 90 ? 4 : 3;
                 const span = doorHeight - .7;
                 for (let i = 0; i < points; i++) {
                     const y = top - .35 - (span / (points - 1)) * i;
@@ -1860,7 +1851,7 @@
         // sheet's numbers exactly (38″/67¾″ on 6'8", ~33¼″/58¾″/83¾″ on 8'0") and extends to 7'0".
         function hingePositionsInches(nominalHeightIn) {
             // Spec sheet: top of door to top of hinge mortise.
-            if (nominalHeightIn >= 94) return [8.25, 33.25, 58.75, 83.75];
+            if (nominalHeightIn >= 90) return [8.25, 33.25, 58.75, 83.75];
             if (nominalHeightIn >= 82 && nominalHeightIn < 90) return [8.25, 40.0, 71.75];
             return [8.25, 38.0, 67.75];
         }
@@ -2618,9 +2609,9 @@
             // needing every part touched by hand.
             const doorWidth = 2.02 * (Number(state.doorWidthIn) / 36);
             const heightIn = Number(state.doorHeightIn);
-            let doorHeight = 4.56 * (heightIn / 96);
-            if (heightIn <= 84) doorHeight *= 1.4;
-            else if (heightIn >= 96) doorHeight *= 1.25;
+            let doorHeight = 4.56 * (heightIn / 95);
+            if (heightIn <= 85) doorHeight *= 1.4;
+            else if (heightIn >= 90) doorHeight *= 1.25;
             const sidelightWidth = .72 * (Number(state.sidelightWidthIn) / 14);
             const doorHalf = doorWidth / 2;
             // 1/8" reveal between the two leaves of a double door, scaled to model units (2.02
@@ -2718,7 +2709,7 @@
             if (liteOptions) liteOptions.style.display = state.doorLite !== 'none' ? '' : 'none';
             const hingeValue = document.getElementById('hinge-value');
             if (hingeValue) {
-                const count = Number(state.doorHeightIn) >= 96 ? 4 : 3;
+                const count = Number(state.doorHeightIn) >= 90 ? 4 : 3;
                 const typeNames = { standard: '', heavyDuty: ' · heavy duty', soss: ' · SOSS concealed' };
                 hingeValue.textContent = `${count} hinges${typeNames[state.hingeType]}`;
             }
@@ -2768,7 +2759,7 @@ updateSummary();
             const handCode = state.hand === 'left' ? 'LH' : 'RH';
             const swingCode = state.swing === 'in' ? 'IN' : 'OUT';
             const sizeCode = `${state.doorWidthIn}X${state.doorHeightIn}`;
-            const hingeCount = Number(state.doorHeightIn) >= 96 ? 4 : 3;
+            const hingeCount = Number(state.doorHeightIn) >= 90 ? 4 : 3;
             document.getElementById('build-code').textContent = `SE-${doorStyle.code}-${sizeCode}-${handCode}${swingCode}-${finishData[state.finish].code}-${frameCodes[state.frame]}${brickmouldCodes[state.brickmould]}${jambCodes[state.jambFinish]}-${lightCodes[state.sidelights]}${mullionFlag}-${hardwareCodes[state.hardware]}${hingeCount}${hingeCodes[state.hingeType]}${liteFlag}${transomFlag}${doubleFlag}${sweepCodes[state.sweep] || ''}`;
             let price = 3842 + finishData[state.finish].price + doorStyle.price + priceData.frame[state.frame] + priceData.hardware[state.hardware] + priceData.metal[state.metal];
             price += priceData.brickmould[state.brickmould];
@@ -2880,7 +2871,7 @@ updateSummary();
                 spec: frameSpec,
                 call: (() => {
                     const w = Number(state.doorWidthIn) === 32 ? '2/8' : Number(state.doorWidthIn) === 36 ? '3/0' : Number(state.doorWidthIn) === 42 ? '3/6' : Number(state.doorWidthIn) === 48 ? '4/0' : formatInches(Number(state.doorWidthIn));
-                    const h = Number(state.doorHeightIn) <= 80 ? '6/8' : Number(state.doorHeightIn) <= 84 ? '7/0' : Number(state.doorHeightIn) >= 96 ? '8/0' : formatInches(Number(state.doorHeightIn));
+                    const h = Number(state.doorHeightIn) <= 81 ? '6/8' : Number(state.doorHeightIn) < 90 ? '7/0' : Number(state.doorHeightIn) >= 90 ? '8/0' : formatInches(Number(state.doorHeightIn));
                     const pair = state.doubleDoor ? 'Pair ' : '';
                     const sl = !hasSidelights ? '' : state.sidelights === 'both' ? ` + pair ${formatInches(sidelightWidthIn)} SL` : state.sidelights === 'left' ? ` + left ${formatInches(sidelightWidthIn)} SL` : ` + right ${formatInches(sidelightWidthIn)} SL`;
                     return pair + w + ' x ' + h + sl;
@@ -2917,7 +2908,7 @@ updateSummary();
                 frameOnly: state.frameOnly ? 'Frame only — no slab' : '',
                 stockType: state.stockType === 'special' ? 'SPECIAL ORDER — do not deduct inventory' : 'STOCK — deduct from inventory',
                 orderDesc: state.orderDesc || '',
-                hingeDetail: `${(Number(state.doorHeightIn)>=96?4:3)} ${state.hingeType === 'heavyDuty' ? 'heavy-duty ball-bearing' : state.hingeType === 'soss' ? 'SOSS concealed' : 'standard'} ${state.hingeSize || '4x4'} ${({satinNickel:'satin nickel',dullBrass:'dull brass',oilRubbed:'oil rubbed',zinc:'zinc'}[state.hingeFinish]||state.hingeFinish)}`,
+                hingeDetail: `${(Number(state.doorHeightIn)>=90?4:3)} ${state.hingeType === 'heavyDuty' ? 'heavy-duty ball-bearing' : state.hingeType === 'soss' ? 'SOSS concealed' : 'standard'} ${state.hingeSize || '4x4'} ${({satinNickel:'satin nickel',dullBrass:'dull brass',oilRubbed:'oil rubbed',zinc:'zinc'}[state.hingeFinish]||state.hingeFinish)}`,
                 sidelights: slLine,
                 hardware: ({pull:'48" pull',lever:'lever set',knob:'round knob',smart:'smart entry',multipoint:'Emtek multipoint'}[state.hardware]||state.hardware),
                 glass: state.glass || 'clear',
@@ -2997,7 +2988,7 @@ updateSummary();
 
         function shopTakeoff(callW, callH) {
             const w = Number(callW) || 36;
-            const h = Number(callH) || 80;
+            const h = Number(callH) || 79;
             const sl = Number(state.sidelightWidthIn) || 12;
             const slCfg = state.sidelights || 'none';
             const dbl = !!state.doubleDoor;
@@ -3076,9 +3067,9 @@ updateSummary();
                 '3/6': 42, '3-6': 42, "3'6": 42,
                 '4/0': 48, '4-0': 48, "4'0": 48,
                 '2/6': 30, '2-6': 30,
-                '6/8': 80, '6-8': 80, "6'8": 80,
-                '7/0': 84, '7-0': 84, "7'0": 84,
-                '8/0': 96, '8-0': 96, "8'0": 96
+                '6/8': 79, '6-8': 79, "6'8": 79,
+                '7/0': 83, '7-0': 83, "7'0": 83,
+                '8/0': 95, '8-0': 95, "8'0": 95
             };
             if (calls[text] != null) return calls[text];
             const slash = text.match(/^(\d+)\/(\d+)$/);
@@ -3096,16 +3087,20 @@ updateSummary();
         function syncSizeButtons() {
             const w = Number(state.doorWidthIn), h = Number(state.doorHeightIn);
             document.querySelectorAll('[data-door-width]').forEach(btn => btn.classList.toggle('active', Number(btn.dataset.doorWidth) === w));
-            document.querySelectorAll('[data-door-height]').forEach(btn => btn.classList.toggle('active', Number(btn.dataset.doorHeight) === h));
+            document.querySelectorAll('[data-door-height]').forEach(btn => {
+                const bh = Number(btn.dataset.doorHeight);
+                const same = bh === h || (bh === 79 && h >= 76 && h <= 81) || (bh === 83 && h > 81 && h < 90) || (bh === 95 && h >= 90);
+                btn.classList.toggle('active', same);
+            });
             const sw = document.getElementById('size-w'), sh = document.getElementById('size-h');
             if (sw && document.activeElement !== sw) sw.value = state.doorWidthIn;
             if (sh && document.activeElement !== sh) sh.value = state.doorHeightIn;
         }
         function frameDoor() {
-            const heightIn = Number(state.doorHeightIn) || 80;
-            let h = 4.56 * (heightIn / 96);
-            if (heightIn <= 84) h *= 1.4;
-            else if (heightIn >= 96) h *= 1.25;
+            const heightIn = Number(state.doorHeightIn) || 79;
+            let h = 4.56 * (heightIn / 95);
+            if (heightIn <= 85) h *= 1.4;
+            else if (heightIn >= 90) h *= 1.25;
             const midY = DOOR_BOTTOM + h / 2;
             const dist = 10.4;
             controls.minDistance = 4.8;
@@ -3118,7 +3113,13 @@ updateSummary();
             const width = w === null || w === undefined || w === '' ? null : parseCallSize(w, 'width');
             const height = h === null || h === undefined || h === '' ? null : parseCallSize(h, 'height');
             if (width) state.doorWidthIn = String(snapEighth(width));
-            if (height) state.doorHeightIn = String(snapEighth(height));
+            if (height) {
+                let hh = snapEighth(height);
+                if (Math.abs(hh - 80) < .2) hh = 79;
+                if (Math.abs(hh - 84) < .2) hh = 83;
+                if (Math.abs(hh - 96) < .2) hh = 95;
+                state.doorHeightIn = String(hh);
+            }
             syncSizeButtons();
             if (rebuildNow) rebuild();
             frameDoor();
@@ -3141,7 +3142,7 @@ updateSummary();
             if (roH && roH >= 24) {
                 const frameH = roH - .375;
                 const slabH = frameH - 2.625;
-                const callH = Math.abs(slabH - 79) < .4 ? 80 : Math.abs(slabH - 83) < .4 ? 84 : Math.abs(slabH - 95) < .4 ? 96 : slabH + 1;
+                const callH = Math.abs(slabH - 79) < .4 ? 79 : Math.abs(slabH - 83) < .4 ? 83 : Math.abs(slabH - 95) < .4 ? 95 : slabH;
                 applyDoorSize(null, callH, false);
             }
             const t1 = shopTakeoff(state.doorWidthIn, state.doorHeightIn);
@@ -3195,10 +3196,12 @@ updateSummary();
         function syncStockUi() {
             const special = state.stockType === 'special';
             document.querySelectorAll('[data-stock]').forEach(btn => btn.classList.toggle('active', btn.dataset.stock === state.stockType));
-            const warn = document.getElementById('stock-warn');
-            const ok = document.getElementById('stock-ok');
-            if (warn) warn.hidden = !special;
-            if (ok) ok.hidden = special;
+            const tip = document.getElementById('tip-stock');
+            if (tip) {
+                tip.textContent = special
+                    ? 'Special order does not deduct from inventory. Use this only if purchasing outside stock. A slab that is on the shelf is STOCK — pick Stock, not Special.'
+                    : 'This SKU deducts from inventory. Do not write “special order” in the description if it is a stock slab.';
+            }
         }
         function bindGroup(selector, dataKey, stateKey) {
             document.querySelectorAll(selector).forEach(button => button.addEventListener('click', () => {
@@ -3512,9 +3515,10 @@ updateSummary();
                 return f + "' " + i + '"';
             };
             const leafW = Number(state.doorWidthIn) || 36;
-            const leafHNum = Number(state.doorHeightIn) || 80;
-            const leafH = leafHNum <= 80 ? 80 : leafHNum <= 84 ? 84 : 96;
-            const pairCall = state.doubleDoor ? (ft(leafW * 2) + ' x ' + ft(leafH) + ' (two ' + ft(leafW) + ' slabs)') : (ft(leafW) + ' x ' + ft(leafH));
+            const leafHNum = Number(state.doorHeightIn) || 79;
+            const leafH = leafHNum <= 81 ? 79 : leafHNum < 90 ? 83 : 95;
+            const callHFt = leafHNum <= 81 ? "6' 8\"" : leafHNum < 90 ? "7' 0\"" : "8' 0\"";
+            const pairCall = state.doubleDoor ? (ft(leafW * 2) + ' x ' + callHFt + ' (two ' + ft(leafW) + ' slabs)') : (ft(leafW) + ' x ' + callHFt);
             const hand = (state.hand === 'left' ? 'Left Hand' : 'Right Hand') + ' ' + (state.swing === 'in' ? 'Inswing' : 'Outswing');
             const bullets = [];
             bullets.push('(1) ' + pairCall + ' - ' + (state.doorThickIn || '1.75') + '" ' + (q.style || '') + (slabOnlyNow ? ' (Slab Only) (No Frame)' : frameOnlyNow ? ' (Frame Only) (No Slab)' : ''));
@@ -3549,7 +3553,7 @@ updateSummary();
                 bullets.push('Deadbolt Bore: ' + (state.boreSizeIn || '2.125') + '" Diameter, ' + (state.boreSpaceIn || '5.5') + '" Spacing, ' + (state.boreLocIn || '43.97') + '" from top of slab, Mortise Edge Prep, No Lip Strike Prep');
             }
             if (state.hardware === 'multipoint') bullets.push('Prep For Multi Point');
-            if (Number(state.doorHeightIn) >= 96) bullets.push('Prep for Heavy Duty Hinges');
+            if (Number(state.doorHeightIn) >= 90) bullets.push('Prep for Heavy Duty Hinges');
             if (q.notes) bullets.push(q.notes);
             const chk = (on) => on ? '[X]' : '[ ]';
             const flagLine = chk(false) + ' STRIKES &nbsp;&nbsp; ' + chk(state.boreQty !== '0' && !frameOnlyNow) + ' HANDLESET &nbsp;&nbsp; ' + chk(!!state.transom) + ' TRANSOM &nbsp;&nbsp; ' + chk(!!state.doubleDoor && !slabOnlyNow) + ' DOUBLE FRAME &nbsp;&nbsp; ' + chk(!!state.doubleDoor && !frameOnlyNow) + ' DOUBLE SLABS';
