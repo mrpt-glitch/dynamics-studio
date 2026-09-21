@@ -1,0 +1,1680 @@
+{
+  "version": 3,
+  "note": "Product library. index.html loads this on start. Add rows; reuse templates. Do not add a unique mesh per SKU.",
+  "templates": [
+    {
+      "id": "flush",
+      "use": "Smooth-Star, contemporary, many steels"
+    },
+    {
+      "id": "construction",
+      "use": "Primed construction / hardboard"
+    },
+    {
+      "id": "twoPanel",
+      "use": "Fiber-Classic and similar"
+    },
+    {
+      "id": "fourPanelLite",
+      "use": "4-panel with lite"
+    },
+    {
+      "id": "sixPanel",
+      "use": "Traditional 6-panel"
+    },
+    {
+      "id": "craftsmanLite",
+      "use": "Craftsman with glass"
+    },
+    {
+      "id": "oneLite",
+      "use": "American style / bungalow 1-lite"
+    },
+    {
+      "id": "fullLite",
+      "use": "French / sash / full glass"
+    },
+    {
+      "id": "rustic",
+      "use": "Plank / rustic / farmhouse"
+    },
+    {
+      "id": "modernLinear",
+      "use": "Pulse / modern"
+    },
+    {
+      "id": "threeLite",
+      "use": "3 stacked lites (CCA2300)"
+    },
+    {
+      "id": "fourLite",
+      "use": "4 stacked lites (CCA2310)"
+    },
+    {
+      "id": "fiveLite",
+      "use": "5 stacked lites (CCA2320)"
+    },
+    {
+      "id": "sideliteFull",
+      "use": "Full-lite sidelite"
+    },
+    {
+      "id": "sidelite4",
+      "use": "4-lite sidelite"
+    },
+    {
+      "id": "sidelite5",
+      "use": "5\u20137 lite sidelite"
+    },
+    {
+      "id": "sidelite1",
+      "use": "1-lite sidelite"
+    }
+  ],
+  "doors": [
+    {
+      "id": "construction",
+      "brand": "Construction",
+      "label": "Construction door",
+      "blurb": "Primed flush slab, hinge pockets, job-site blank",
+      "template": "construction",
+      "code": "CON"
+    },
+    {
+      "id": "ttClassicCraftCraftsman",
+      "brand": "Therma-Tru",
+      "label": "Classic-Craft Craftsman",
+      "blurb": "True divided-lite glass over raised panel",
+      "template": "craftsmanLite",
+      "code": "TCC"
+    },
+    {
+      "id": "ttClassicCraftRustic",
+      "brand": "Therma-Tru",
+      "label": "Classic-Craft Rustic",
+      "blurb": "Distressed grain, hand-forged straps",
+      "template": "rustic",
+      "code": "TCR"
+    },
+    {
+      "id": "ttClassicCraftAmerican",
+      "brand": "Therma-Tru",
+      "label": "Classic-Craft American Style",
+      "blurb": "One-lite over panel",
+      "template": "oneLite",
+      "code": "TCA"
+    },
+    {
+      "id": "ttFiberClassic",
+      "brand": "Therma-Tru",
+      "label": "Fiber-Classic",
+      "blurb": "Stainable oak or mahogany wood grain",
+      "template": "twoPanel",
+      "code": "TFC"
+    },
+    {
+      "id": "ttSmoothStar",
+      "brand": "Therma-Tru",
+      "label": "Smooth-Star",
+      "blurb": "Smooth fiberglass flush",
+      "template": "flush",
+      "code": "TSS"
+    },
+    {
+      "id": "ttTraditions4Panel",
+      "brand": "Therma-Tru",
+      "label": "Traditions 4-Panel lite",
+      "blurb": "4-panel with glass",
+      "template": "fourPanelLite",
+      "code": "TT4"
+    },
+    {
+      "id": "ttTraditions6Panel",
+      "brand": "Therma-Tru",
+      "label": "Traditions 6-Panel",
+      "blurb": "Raised 6-panel",
+      "template": "sixPanel",
+      "code": "TT6"
+    },
+    {
+      "id": "ttPulse",
+      "brand": "Therma-Tru",
+      "label": "Pulse",
+      "blurb": "Modern linear glass",
+      "template": "modernLinear",
+      "code": "TPU"
+    },
+    {
+      "id": "spCraftsman",
+      "brand": "Simpson",
+      "label": "Craftsman Collection",
+      "blurb": "Craftsman lite",
+      "template": "craftsmanLite",
+      "code": "SCR"
+    },
+    {
+      "id": "spTraditional",
+      "brand": "Simpson",
+      "label": "Traditional",
+      "blurb": "6-panel wood",
+      "template": "sixPanel",
+      "code": "STR"
+    },
+    {
+      "id": "spFarmhouse",
+      "brand": "Simpson",
+      "label": "Modern Farmhouse",
+      "blurb": "Rustic plank",
+      "template": "rustic",
+      "code": "SFH"
+    },
+    {
+      "id": "spBungalow",
+      "brand": "Simpson",
+      "label": "Bungalow Series",
+      "blurb": "1-lite bungalow",
+      "template": "oneLite",
+      "code": "SBG"
+    },
+    {
+      "id": "spContemporary",
+      "brand": "Simpson",
+      "label": "Contemporary",
+      "blurb": "Flush contemporary",
+      "template": "flush",
+      "code": "SCO"
+    },
+    {
+      "id": "spFrenchSash",
+      "brand": "Simpson",
+      "label": "French & Sash",
+      "blurb": "Full lite / sash",
+      "template": "fullLite",
+      "code": "SFR"
+    },
+    {
+      "id": "CCA2400",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2400 full lite",
+      "blurb": "Fir full lite 3/0",
+      "template": "fullLite",
+      "code": "CCA2400",
+      "kind": "door",
+      "sku68": "CCA2400",
+      "sku80": "CCA82400",
+      "sizes": [
+        "3/0x6/8",
+        "3/0x8/0"
+      ],
+      "glass": "clear"
+    },
+    {
+      "id": "CCA2300",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2300 3-lite",
+      "blurb": "Fir 3 horizontal lites",
+      "template": "modernLinear",
+      "code": "CCA2300",
+      "kind": "door",
+      "sku68": "CCA2300",
+      "sku80": "CCA82300",
+      "sizes": [
+        "3/0x6/8",
+        "3/0x8/0"
+      ],
+      "lites": 3,
+      "layout": "threeLite"
+    },
+    {
+      "id": "CCA2310",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2310 4-lite",
+      "blurb": "Fir 4 horizontal lites",
+      "template": "modernLinear",
+      "code": "CCA2310",
+      "kind": "door",
+      "sku68": "CCA2310",
+      "sku80": "CCA82310",
+      "sizes": [
+        "3/0x6/8",
+        "3/0x8/0"
+      ],
+      "lites": 4,
+      "layout": "fourLite"
+    },
+    {
+      "id": "CCA2320",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2320 5-lite",
+      "blurb": "Fir 5 horizontal lites",
+      "template": "modernLinear",
+      "code": "CCA2320",
+      "kind": "door",
+      "sku68": "CCA2320",
+      "sku80": "CCA82320",
+      "sizes": [
+        "3/0x6/8",
+        "3/0x8/0"
+      ],
+      "lites": 5,
+      "layout": "fiveLite"
+    },
+    {
+      "id": "FCM4814",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM4814 craftsman 4-lite",
+      "blurb": "Mahogany 4-lite over 2-panel",
+      "template": "craftsmanLite",
+      "code": "FCM4814",
+      "kind": "door",
+      "sku68": "FCM4814",
+      "sku80": "FCM84814",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "FCM4816",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM4816 craftsman",
+      "blurb": "Mahogany craftsman lite",
+      "template": "craftsmanLite",
+      "code": "FCM4816",
+      "kind": "door",
+      "sku68": "FCM4816",
+      "sku80": "FCM84816",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "FCM4810",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM4810 1-lite",
+      "blurb": "Mahogany 1-lite over panel",
+      "template": "oneLite",
+      "code": "FCM4810",
+      "kind": "door",
+      "sku68": "FCM4810",
+      "sku80": "FCM84810",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "FCM4812",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM4812 craftsman",
+      "blurb": "Mahogany 4-lite craftsman",
+      "template": "craftsmanLite",
+      "code": "FCM4812",
+      "kind": "door",
+      "sku68": "FCM4812",
+      "sku80": "FCM84812",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "FCM4813",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM4813 craftsman",
+      "blurb": "Mahogany craftsman",
+      "template": "craftsmanLite",
+      "code": "FCM4813",
+      "kind": "door",
+      "sku68": "FCM4813",
+      "sku80": "FCM84813",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "S4812",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S4812 craftsman 4-lite",
+      "blurb": "Smooth 4-lite over 2-panel",
+      "template": "craftsmanLite",
+      "code": "S4812",
+      "kind": "door",
+      "sku68": "S4812",
+      "sku80": "S84812",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "S4813",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S4813 craftsman",
+      "blurb": "Smooth craftsman lite",
+      "template": "craftsmanLite",
+      "code": "S4813",
+      "kind": "door",
+      "sku68": "S4813",
+      "sku80": "S84813",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "S4814",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S4814 craftsman",
+      "blurb": "Smooth craftsman",
+      "template": "craftsmanLite",
+      "code": "S4814",
+      "kind": "door",
+      "sku68": "S4814",
+      "sku80": "S84814",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "S4816",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S4816 craftsman",
+      "blurb": "Smooth craftsman",
+      "template": "craftsmanLite",
+      "code": "S4816",
+      "kind": "door",
+      "sku68": "S4816",
+      "sku80": "S84816",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "S4810",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S4810 1-lite",
+      "blurb": "Smooth 1-lite over panel",
+      "template": "oneLite",
+      "code": "S4810",
+      "kind": "door",
+      "sku68": "S4810",
+      "sku80": "S84810",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "SSF1100",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "fire": "20-min wood edge FG",
+      "label": "SSF1100 1-panel shaker",
+      "template": "shakerOne",
+      "code": "SSF1100",
+      "kind": "door",
+      "sku68": "SSF1100",
+      "sku80": "SSF81100",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "SSF120",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "fire": "20-min wood edge FG",
+      "label": "SSF120 2-panel shaker",
+      "template": "shakerTwo",
+      "code": "SSF120",
+      "kind": "door",
+      "sku68": "SSF120",
+      "sku80": "SSF8120",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "SSF200",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "fire": "20-min wood edge FG",
+      "label": "SSF200 2-panel fire",
+      "template": "twoPanel",
+      "code": "SSF200",
+      "kind": "door",
+      "sku68": "SSF200",
+      "sku80": "SSF8200",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/6x8/0",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "SSF4800",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "fire": "20-min wood edge FG",
+      "label": "SSF4800 2-panel fire",
+      "template": "twoPanel",
+      "code": "SSF4800",
+      "kind": "door",
+      "sku68": "SSF4800",
+      "sku80": "SSF84800",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "SSF160",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "fire": "20-min wood edge FG",
+      "label": "SSF160 6-panel fire",
+      "template": "sixPanel",
+      "code": "SSF160",
+      "kind": "door",
+      "sku68": "SSF160",
+      "sku80": "SSF8160",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/6x8/0",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "SSF100",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "fire": "20-min wood edge FG",
+      "label": "SSF100 1-panel shaker",
+      "template": "shakerOne",
+      "code": "SSF100",
+      "kind": "door",
+      "sku68": "SSF100",
+      "sku80": "SSF8100",
+      "sizes": [
+        "2/0x6/8",
+        "2/4x6/8",
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/0x8/0",
+        "2/4x8/0",
+        "2/6x8/0",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "969HD",
+      "brand": "Therma-Tru",
+      "collection": "Profiles",
+      "fire": "20-min wood edge steel",
+      "label": "969HD fan-lite steel fire",
+      "template": "craftsmanLite",
+      "code": "969HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "978HD",
+      "brand": "Therma-Tru",
+      "collection": "Profiles",
+      "fire": "20-min wood edge steel",
+      "label": "978HD 2-panel raised",
+      "template": "raisedTwo",
+      "code": "978HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "205HD",
+      "brand": "Therma-Tru",
+      "collection": "Profiles",
+      "fire": "20-min wood edge steel",
+      "label": "205HD 2-panel arch steel fire",
+      "template": "twoPanel",
+      "code": "205HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "203HD",
+      "brand": "Therma-Tru",
+      "collection": "Profiles",
+      "fire": "20-min wood edge steel",
+      "label": "203HD 2-panel w/ lite steel fire",
+      "template": "oneLite",
+      "code": "203HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "210HD",
+      "brand": "Therma-Tru",
+      "collection": "Profiles",
+      "fire": "20-min wood edge steel",
+      "label": "210HD 6-panel steel fire",
+      "template": "sixPanel",
+      "code": "210HD",
+      "kind": "door",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "100",
+      "brand": "Therma-Tru",
+      "collection": "Profiles",
+      "fire": "20-min wood edge steel",
+      "label": "100 flush steel fire",
+      "template": "flush",
+      "code": "100",
+      "kind": "door",
+      "sizes": [
+        "2/0x6/8",
+        "2/4x6/8",
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "TS210",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "TS210 6-panel",
+      "template": "sixPanel",
+      "code": "TS210",
+      "kind": "door",
+      "sku68": "TS210",
+      "sku80": "810",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/6x8/0",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "TS100",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "TS100 flush",
+      "template": "flush",
+      "code": "TS100",
+      "kind": "door",
+      "sku68": "TS100",
+      "sku80": "800",
+      "sizes": [
+        "2/0x6/8",
+        "2/4x6/8",
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/0x8/0",
+        "2/4x8/0",
+        "2/6x8/0",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ]
+    },
+    {
+      "id": "TS128",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "TS128 1-lite",
+      "template": "fullLite",
+      "code": "TS128",
+      "kind": "door",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ],
+      "glass": "clear"
+    },
+    {
+      "id": "TS1200",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "TS1200 9-lite",
+      "template": "fullLite",
+      "code": "TS1200",
+      "kind": "door",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ],
+      "glass": "clear",
+      "lites": 9
+    },
+    {
+      "id": "TS108",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "TS108 1-lite SDL",
+      "template": "fullLite",
+      "code": "TS108",
+      "kind": "door",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "TS118",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "TS118 1-lite clear",
+      "template": "fullLite",
+      "code": "TS118",
+      "kind": "door",
+      "sku68": "TS118",
+      "sku80": "818",
+      "sizes": [
+        "2/0x6/8",
+        "2/4x6/8",
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8",
+        "2/0x8/0",
+        "2/6x8/0",
+        "2/8x8/0",
+        "2/10x8/0",
+        "3/0x8/0"
+      ],
+      "glass": "clear"
+    },
+    {
+      "id": "601HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "label": "601HD 1-lite over 2-panel",
+      "template": "oneLite",
+      "code": "601HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "605HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "label": "605HD 3-lite over 2-panel",
+      "template": "craftsmanLite",
+      "code": "605HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "606HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "label": "606HD 2-lite over 2-panel",
+      "template": "craftsmanLite",
+      "code": "606HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "607HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "label": "607HD 3-lite over 2-panel",
+      "template": "craftsmanLite",
+      "code": "607HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "608HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "label": "608HD 4-lite over 2-panel",
+      "template": "craftsmanLite",
+      "code": "608HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "604HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "series": "Sedona",
+      "label": "604HD Sedona",
+      "template": "craftsmanLite",
+      "code": "604HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "609HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "series": "Maple Park",
+      "label": "609HD Maple Park",
+      "template": "craftsmanLite",
+      "code": "609HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "602HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "series": "Saratoga",
+      "label": "602HD Saratoga",
+      "template": "craftsmanLite",
+      "code": "602HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "508HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "series": "Riserva",
+      "label": "508HD Riserva",
+      "template": "craftsmanLite",
+      "code": "508HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "6520HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "series": "Pembridge",
+      "label": "6520HD Pembridge",
+      "template": "craftsmanLite",
+      "code": "6520HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "1650HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "series": "Axis",
+      "label": "1650HD Axis",
+      "template": "craftsmanLite",
+      "code": "1650HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "6975HD",
+      "brand": "Therma-Tru",
+      "collection": "Traditions Steel",
+      "series": "Calix",
+      "label": "6975HD Calix",
+      "template": "craftsmanLite",
+      "code": "6975HD",
+      "kind": "door",
+      "sizes": [
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ]
+    },
+    {
+      "id": "TS1201",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "TS1201 9-lite / divided lite",
+      "blurb": "Clear glass with divided lites 2/6\u20133/0 x 6/8",
+      "template": "fullLite",
+      "code": "TS1201",
+      "kind": "door",
+      "sku68": "TS1201",
+      "sizes": [
+        "2/6x6/8",
+        "2/8x6/8",
+        "2/10x6/8",
+        "3/0x6/8"
+      ],
+      "glass": "clear",
+      "lites": 9
+    }
+  ],
+  "glass": [
+    {
+      "id": "clear",
+      "label": "Clear"
+    },
+    {
+      "id": "lowIron",
+      "label": "Low-iron clear"
+    },
+    {
+      "id": "reeded",
+      "label": "Reeded"
+    },
+    {
+      "id": "rain",
+      "label": "Rain"
+    },
+    {
+      "id": "chinchilla",
+      "label": "Chinchilla"
+    },
+    {
+      "id": "satin",
+      "label": "Satin"
+    },
+    {
+      "id": "privacy",
+      "label": "Privacy"
+    },
+    {
+      "id": "bronze",
+      "label": "Bronze tint"
+    },
+    {
+      "id": "smoked",
+      "label": "Smoked"
+    }
+  ],
+  "astragals": [
+    {
+      "id": "alum-bronze",
+      "type": "aluminum",
+      "label": "Aluminum bronze",
+      "color": "#6b5a3e",
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "preps": [
+        "double-bore",
+        "multipoint"
+      ]
+    },
+    {
+      "id": "alum-white",
+      "type": "aluminum",
+      "label": "Aluminum white",
+      "color": "#e8e6e1",
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "preps": [
+        "double-bore",
+        "multipoint"
+      ]
+    },
+    {
+      "id": "wood",
+      "type": "wood",
+      "label": "Wood astragal",
+      "note": "One mesh; six finishes are colors only",
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "finishes": [
+        "oak",
+        "pine",
+        "mahogany",
+        "walnut",
+        "primed",
+        "paint-grade"
+      ]
+    }
+  ],
+  "hinges": [
+    {
+      "id": "standard",
+      "label": "Standard",
+      "template": "butt"
+    },
+    {
+      "id": "heavyDuty",
+      "label": "Heavy duty",
+      "template": "butt-hd"
+    },
+    {
+      "id": "soss",
+      "label": "SOSS concealed",
+      "template": "soss",
+      "note": "Mostly interior; ticket line more than 3D"
+    }
+  ],
+  "skipped": [
+    {
+      "id": "CCA4940",
+      "reason": "owner crossed out (rustic X-brace)"
+    },
+    {
+      "id": "CCA84940",
+      "reason": "8/0 of CCA4940, crossed out"
+    },
+    {
+      "id": "CCR30020",
+      "reason": "owner crossed out (mahogany full lite)"
+    },
+    {
+      "id": "CCV10020",
+      "reason": "owner crossed out (canvas full lite)"
+    },
+    {
+      "id": "SSF93",
+      "reason": "crossed out"
+    },
+    {
+      "id": "SSF45",
+      "reason": "crossed out"
+    },
+    {
+      "id": "SSF220",
+      "reason": "crossed out"
+    },
+    {
+      "id": "SSF205",
+      "reason": "crossed out"
+    },
+    {
+      "id": "SSF755",
+      "reason": "crossed out"
+    },
+    {
+      "id": "SSF31",
+      "reason": "crossed out"
+    },
+    {
+      "id": "SSF900",
+      "reason": "crossed out"
+    },
+    {
+      "id": "SSF600",
+      "reason": "crossed out"
+    },
+    {
+      "id": "1005HD",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS130",
+      "reason": "internal blinds crossed out"
+    },
+    {
+      "id": "829",
+      "reason": "internal blinds crossed out"
+    },
+    {
+      "id": "TS1202",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS1203",
+      "reason": "crossed out"
+    },
+    {
+      "id": "828",
+      "reason": "crossed out"
+    },
+    {
+      "id": "808",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS198",
+      "reason": "crossed out"
+    },
+    {
+      "id": "198SL",
+      "reason": "crossed out"
+    },
+    {
+      "id": "818",
+      "reason": "8/0 column crossed on that page"
+    },
+    {
+      "id": "818SL",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS262",
+      "reason": "1/2 lite privacy crossed out"
+    },
+    {
+      "id": "8321",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS263SL",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS206",
+      "reason": "crossed out"
+    },
+    {
+      "id": "8206",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS104",
+      "reason": "crossed out"
+    },
+    {
+      "id": "TS210SL",
+      "reason": "crossed out"
+    }
+  ],
+  "sidelites": [
+    {
+      "id": "CCA2300SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2300SL 4-lite",
+      "template": "sidelite4",
+      "code": "CCA2300SL",
+      "kind": "sidelite",
+      "sku68": "CCA2300SL",
+      "sku80": "CCA82300SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "lites": 4
+    },
+    {
+      "id": "CCA2310SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2310SL 4-lite",
+      "template": "sidelite4",
+      "code": "CCA2310SL",
+      "kind": "sidelite",
+      "sku68": "CCA2310SL",
+      "sku80": "CCA82310SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "lites": 4
+    },
+    {
+      "id": "CCA2320SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2320SL 5-lite",
+      "template": "sidelite5",
+      "code": "CCA2320SL",
+      "kind": "sidelite",
+      "sku68": "CCA2320SL",
+      "sku80": "CCA82320SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "lites": 5
+    },
+    {
+      "id": "CCA2330SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2330SL 6-lite",
+      "template": "sidelite5",
+      "code": "CCA2330SL",
+      "kind": "sidelite",
+      "sku68": "CCA2330SL",
+      "sku80": "CCA82330SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "lites": 6
+    },
+    {
+      "id": "CCA2340SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2340SL 7-lite",
+      "template": "sidelite5",
+      "code": "CCA2340SL",
+      "kind": "sidelite",
+      "sku68": "CCA2340SL",
+      "sku80": "CCA82340SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "lites": 7
+    },
+    {
+      "id": "CCA2400SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Fir",
+      "label": "CCA2400SL full lite",
+      "template": "sideliteFull",
+      "code": "CCA2400SL",
+      "kind": "sidelite",
+      "sku68": "CCA2400SL",
+      "sku80": "CCA82400SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "lites": 1
+    },
+    {
+      "id": "CCR2025SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Mahogany",
+      "label": "CCR2025SL 4-lite",
+      "template": "sidelite4",
+      "code": "CCR2025SL",
+      "kind": "sidelite",
+      "sku68": "CCR2025SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8"
+      ],
+      "lites": 4
+    },
+    {
+      "id": "CCR3400SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Mahogany",
+      "label": "CCR3400SL 1-lite",
+      "template": "sidelite1",
+      "code": "CCR3400SL",
+      "kind": "sidelite",
+      "sku68": "CCR3400SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8"
+      ],
+      "lites": 1
+    },
+    {
+      "id": "CCV950SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Canvas",
+      "label": "CCV950SL 4-lite",
+      "template": "sidelite4",
+      "code": "CCV950SL",
+      "kind": "sidelite",
+      "sku68": "CCV950SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8"
+      ],
+      "lites": 4
+    },
+    {
+      "id": "CCV100SL",
+      "brand": "Therma-Tru",
+      "collection": "Classic-Craft",
+      "skin": "Canvas",
+      "label": "CCV100SL 1-lite",
+      "template": "sidelite1",
+      "code": "CCV100SL",
+      "kind": "sidelite",
+      "sku68": "CCV100SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8"
+      ],
+      "lites": 1
+    },
+    {
+      "id": "FCM2050SL",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM2050SL",
+      "template": "sidelite4",
+      "code": "FCM2050SL",
+      "kind": "sidelite",
+      "sku68": "FCM2050SL",
+      "sku80": "FCM84886SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "FCM4812SL",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM4812SL",
+      "template": "sidelite4",
+      "code": "FCM4812SL",
+      "kind": "sidelite",
+      "sku68": "FCM4812SL",
+      "sku80": "FCM84812SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "FCM2000SL",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM2000SL 1-lite",
+      "template": "sidelite1",
+      "code": "FCM2000SL",
+      "kind": "sidelite",
+      "sku68": "FCM2000SL",
+      "sku80": "FCM8000SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "FCM4810SL",
+      "brand": "Therma-Tru",
+      "collection": "Fiber-Classic",
+      "skin": "Mahogany",
+      "label": "FCM4810SL",
+      "template": "sidelite1",
+      "code": "FCM4810SL",
+      "kind": "sidelite",
+      "sku68": "FCM4810SL",
+      "sku80": "FCM84810SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "S2010SL",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S2010SL",
+      "template": "sidelite4",
+      "code": "S2010SL",
+      "kind": "sidelite",
+      "sku68": "S2010SL",
+      "sku80": "S84886SL",
+      "widths": [
+        "10",
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "S4812SL",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S4812SL",
+      "template": "sidelite4",
+      "code": "S4812SL",
+      "kind": "sidelite",
+      "sku68": "S4812SL",
+      "sku80": "S84812SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "S2000SL",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S2000SL 1-lite",
+      "template": "sidelite1",
+      "code": "S2000SL",
+      "kind": "sidelite",
+      "sku68": "S2000SL",
+      "sku80": "S8000SL",
+      "widths": [
+        "10",
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "S4810SL",
+      "brand": "Therma-Tru",
+      "collection": "Smooth-Star",
+      "skin": "Smooth",
+      "label": "S4810SL",
+      "template": "sidelite1",
+      "code": "S4810SL",
+      "kind": "sidelite",
+      "sku68": "S4810SL",
+      "sku80": "S84810SL",
+      "widths": [
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ]
+    },
+    {
+      "id": "100SL",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "100SL privacy 1-lite",
+      "template": "sidelite1",
+      "code": "100SL",
+      "kind": "sidelite",
+      "widths": [
+        "10",
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8",
+        "8/0"
+      ],
+      "glass": "privacy"
+    },
+    {
+      "id": "1200SL",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "1200SL 1-lite SDL",
+      "template": "sidelite1",
+      "code": "1200SL",
+      "kind": "sidelite",
+      "widths": [
+        "10",
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8"
+      ]
+    },
+    {
+      "id": "1201SL",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "1201SL 1-lite",
+      "template": "sidelite1",
+      "code": "1201SL",
+      "kind": "sidelite",
+      "widths": [
+        "10",
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8"
+      ]
+    },
+    {
+      "id": "1202SL",
+      "brand": "Therma-Tru",
+      "collection": "Traditions",
+      "label": "1202SL 1-lite",
+      "template": "sidelite1",
+      "code": "1202SL",
+      "kind": "sidelite",
+      "widths": [
+        "10",
+        "12",
+        "14"
+      ],
+      "heights": [
+        "6/8"
+      ]
+    }
+  ]
+}
