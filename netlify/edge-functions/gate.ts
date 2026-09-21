@@ -48,5 +48,5 @@ export default async (request: Request, context: Context) => {
 };
 
 export const config: Config = {
-  path: ["/", "/index.html", "/catalog.json"]
+  path: ["/", "/index.html", "/catalog.json", "/saved.html"]
 };
