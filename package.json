@@ -1,7 +1,0 @@
-{
-  "private": true,
-  "devDependencies": {
-    "@netlify/edge-functions": "latest",
-    "@netlify/functions": "latest"
-  }
-}
