@@ -43,6 +43,22 @@ this repo.
 
 _(newest first)_
 
+### 2026-09-21 evening — Grok
+Shop size and ticket cleanup on `index.html` only. Login / gate / access
+not touched. Claude's Save-to-database work was already on main when this
+was logged — **do not push Grok's local `index.html` over main until it is
+merged with that Save button / POST**. Changes in the working copy:
+- 6/8, 7/0, 8/0 buttons and parse map now use slab heights 79 / 83 / 95
+  (not 80 / 84 / 96). Frame height stays slab + 2⅝″ (81⅝ / 85⅝ / 97⅝).
+  Single 3/0 frame width is the call (36″), slab width 35¹³⁄₁₆″.
+- Inventory banners removed from the Unit tab. Stock/special copy is an
+  **i** tip. Brand names dropped from that tip.
+- Size-card (slab/frame/over-slab box under the height buttons) removed.
+  Formula stays in the door-size **i** tip only.
+- Printed work order no longer includes “do not deduct inventory” or the
+  frame-over-slab formula. Description/Notes say STOCK or SPECIAL ORDER.
+  Frame size + slab still print for the shop.
+
 ### 2026-09-21 — Claude
 Added Save-to-database. New: `netlify/edge-functions/configurations.ts`
 (Netlify Blobs — no new account needed, works automatically once deployed
