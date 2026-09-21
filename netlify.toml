@@ -1,0 +1,15 @@
+[build]
+  publish = "."
+
+[[edge_functions]]
+  function = "gate"
+  path = "/*"
+
+[[edge_functions]]
+  function = "access"
+  path = "/api/access"
+
+[[headers]]
+  for = "/netlify/*"
+  [headers.values]
+    Cache-Control = "no-store"
