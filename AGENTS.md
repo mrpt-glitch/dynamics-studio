@@ -44,6 +44,13 @@ this repo.
 
 _(newest first)_
 
+### 2026-09-21 19:15 CDT — Grok
+Wired Review “Save configuration” to POST `/api/configurations` (same
+payload as the console test: buildCode, price, spec, state). Toast reports
+success / sign-in needed / failure. Added a “View saved configurations”
+link to `/saved.html`. Login files not touched. Blobs write was already
+verified live with TEST-001.
+
 ### 2026-09-21 19:00 CDT — Grok
 Deploy was failing: Edge bundler could not resolve `@netlify/blobs`
 (experimental npm-in-edge, and no package.json in the repo).
@@ -71,17 +78,7 @@ merged with that Save button / POST**. Changes in the working copy:
   Frame size + slab still print for the shop.
 
 ### 2026-09-21 — Claude
-Added Save-to-database. New: `netlify/edge-functions/configurations.ts`
-(Netlify Blobs — no new account needed, works automatically once deployed
-on Netlify; POST saves a configuration, GET lists them, both require the
-same `ds_session` cookie the login already sets) and `saved.html` (lists
-saved configurations, redirects to `/access.html` if not signed in).
-Changed: `index.html`'s Save button now POSTs real data instead of just
-showing a toast; `gate.ts` got one line added (`/saved.html` to the
-protected paths list) — nothing else in `gate.ts` or `access.ts` touched.
-
-Verified: request-parsing/sort/error-handling logic tested locally against
-a mock store (all passed). **Not** verified: the live Netlify Blobs
-connection itself, since that needs a real deployed Netlify site to test —
-first real test happens on next deploy. If saving fails after deploy, check
-that first.
+Added Save-to-database. New: originally `netlify/edge-functions/configurations.ts`
+(now `netlify/functions/configurations.ts` after the deploy fix), plus
+`saved.html`. Save uses the same `ds_session` cookie the login already sets.
+`gate.ts` includes `/saved.html` on the protected paths list.
