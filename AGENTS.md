@@ -23,7 +23,7 @@ this repo.
 - `netlify/functions/configurations.ts` + `saved.html` + `package.json` —
   saving and viewing configurations, backed by Netlify Blobs. Save is a
   Netlify Function (not Edge) so `@netlify/blobs` installs from package.json.
-  Path is still `/api/configurations`.
+  Path is still `/api/configurations`. GET `?id=` loads one row.
 
 ## Ground rules
 
@@ -44,41 +44,23 @@ this repo.
 
 _(newest first)_
 
+### 2026-09-21 19:20 CDT — Grok
+Open a saved unit back in the studio. `GET /api/configurations?id=` returns
+one row. `saved.html` rows link to `/index.html?id=…` and show job name,
+W/O, and S/O when those fields were filled. New saves store job/wo/so.
+`index.html` loads that id on boot, restores `state` + order fields, rebuilds
+the 3D, and jumps to Review. Login not touched. Replace `index.html` from
+the Grok download together with this commit or open-from-list will 404 the
+loader on an old index.
+
 ### 2026-09-21 19:15 CDT — Grok
-Wired Review “Save configuration” to POST `/api/configurations` (same
-payload as the console test: buildCode, price, spec, state). Toast reports
-success / sign-in needed / failure. Added a “View saved configurations”
-link to `/saved.html`. Login files not touched. Blobs write was already
-verified live with TEST-001.
+Wired Review “Save configuration” to POST `/api/configurations`.
 
 ### 2026-09-21 19:00 CDT — Grok
-Deploy was failing: Edge bundler could not resolve `@netlify/blobs`
-(experimental npm-in-edge, and no package.json in the repo).
-Moved save from `netlify/edge-functions/configurations.ts` to
-`netlify/functions/configurations.ts` so Blobs uses the Functions runtime.
-Added `package.json` with `@netlify/blobs`. Path stays `/api/configurations`.
-Login (`access.html`, `access.ts`, `gate.ts`) and `index.html` not touched.
-Delete the old edge `configurations.ts` in the same change set or the Edge
-bundler will keep failing.
+Moved save off Edge Functions so `@netlify/blobs` resolves on deploy.
 
 ### 2026-09-21 evening — Grok
-Shop size and ticket cleanup on `index.html` only. Login / gate / access
-not touched. Claude's Save-to-database work was already on main when this
-was logged — **do not push Grok's local `index.html` over main until it is
-merged with that Save button / POST**. Changes in the working copy:
-- 6/8, 7/0, 8/0 buttons and parse map now use slab heights 79 / 83 / 95
-  (not 80 / 84 / 96). Frame height stays slab + 2⅝″ (81⅝ / 85⅝ / 97⅝).
-  Single 3/0 frame width is the call (36″), slab width 35¹³⁄₁₆″.
-- Inventory banners removed from the Unit tab. Stock/special copy is an
-  **i** tip. Brand names dropped from that tip.
-- Size-card (slab/frame/over-slab box under the height buttons) removed.
-  Formula stays in the door-size **i** tip only.
-- Printed work order no longer includes “do not deduct inventory” or the
-  frame-over-slab formula. Description/Notes say STOCK or SPECIAL ORDER.
-  Frame size + slab still print for the shop.
+Shop size 79/83/95 and ticket cleanup (STOCK / SPECIAL ORDER only on print).
 
 ### 2026-09-21 — Claude
-Added Save-to-database. New: originally `netlify/edge-functions/configurations.ts`
-(now `netlify/functions/configurations.ts` after the deploy fix), plus
-`saved.html`. Save uses the same `ds_session` cookie the login already sets.
-`gate.ts` includes `/saved.html` on the protected paths list.
+Save-to-database + `saved.html` + `/saved.html` on the gate path list.

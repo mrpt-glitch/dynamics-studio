@@ -15,11 +15,14 @@
         header a { color: var(--accent); text-decoration: none; font-size: 13px; font-weight: 600; }
         h1 { margin: 0; font-size: 16px; font-weight: 700; }
         main { max-width: 900px; margin: 0 auto; padding: 28px 32px; }
-        .row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; margin-bottom: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; }
+        .row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px; margin-bottom: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 6px; text-decoration: none; color: inherit; }
+        .row:hover { border-color: var(--accent); }
         .code { font: 600 13px monospace; }
+        .job { font-size: 13px; font-weight: 650; margin-bottom: 2px; }
         .spec { color: var(--muted); font-size: 12px; margin-top: 4px; max-width: 560px; }
-        .price { font-weight: 700; white-space: nowrap; }
-        .time { color: var(--muted); font-size: 11px; white-space: nowrap; }
+        .meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
+        .open { font-size: 12px; font-weight: 650; color: var(--accent); white-space: nowrap; }
+        .time { color: var(--muted); font-size: 11px; white-space: nowrap; margin-top: 4px; }
         .empty, .error { color: var(--muted); text-align: center; padding: 60px 0; font-size: 13px; }
         .error { color: #b42318; }
     </style>
@@ -31,12 +34,22 @@
     </header>
     <main id="list"><p class="empty">Loading…</p></main>
     <script>
+        function esc(v) {
+            return String(v == null ? '' : v).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+        }
         function timeAgo(iso) {
             const seconds = Math.max(1, Math.round((Date.now() - new Date(iso)) / 1000));
             if (seconds < 60) return seconds + 's ago';
             const m = Math.round(seconds / 60); if (m < 60) return m + 'm ago';
             const h = Math.round(m / 60); if (h < 24) return h + 'h ago';
             return Math.round(h / 24) + 'd ago';
+        }
+        function label(row) {
+            const quote = row.state && row.state.quote ? row.state.quote : {};
+            const job = row.job || quote.jobname || quote.jobref || '';
+            const wo = row.wo || quote.wo || '';
+            const so = row.so || quote.so || '';
+            return { job, wo, so };
         }
         async function load() {
             const list = document.getElementById('list');
@@ -46,18 +59,23 @@
                 if (!response.ok) throw new Error('Server responded ' + response.status);
                 const rows = await response.json();
                 if (!rows.length) { list.innerHTML = '<p class="empty">No configurations saved yet.</p>'; return; }
-                list.innerHTML = rows.map(row => `
-                    <div class="row">
+                list.innerHTML = rows.map(row => {
+                    const { job, wo, so } = label(row);
+                    const bits = [wo ? ('W/O ' + wo) : '', so ? ('S/O ' + so) : ''].filter(Boolean).join(' · ');
+                    return `
+                    <a class="row" href="/index.html?id=${encodeURIComponent(row.id)}">
                         <div>
-                            <div class="code">${row.build_code}</div>
-                            <div class="spec">${row.spec}</div>
+                            ${job ? '<div class="job">' + esc(job) + '</div>' : ''}
+                            <div class="code">${esc(row.build_code)}</div>
+                            <div class="spec">${esc(row.spec || '')}</div>
+                            ${bits ? '<div class="meta">' + esc(bits) + '</div>' : ''}
                         </div>
                         <div style="text-align:right;">
-                            <div class="price">$${Number(row.price).toLocaleString('en-US')}</div>
+                            <div class="open">Open in studio</div>
                             <div class="time">${timeAgo(row.created_at)}</div>
                         </div>
-                    </div>
-                `).join('');
+                    </a>`;
+                }).join('');
             } catch (err) {
                 console.error('[Saved] could not load:', err);
                 list.innerHTML = '<p class="error">Could not load saved configurations.</p>';

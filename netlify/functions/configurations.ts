@@ -9,7 +9,15 @@ function store() {
   return getStore("configurations");
 }
 
-async function saveConfiguration(data: { buildCode: string; price: number; spec: string; state: unknown }) {
+async function saveConfiguration(data: {
+  buildCode: string;
+  price: number;
+  spec: string;
+  state: unknown;
+  job?: string;
+  wo?: string;
+  so?: string;
+}) {
   const id = String(Date.now());
   const row = {
     id,
@@ -17,10 +25,17 @@ async function saveConfiguration(data: { buildCode: string; price: number; spec:
     price: data.price,
     spec: data.spec,
     state: data.state,
+    job: data.job || "",
+    wo: data.wo || "",
+    so: data.so || "",
     created_at: new Date().toISOString()
   };
   await store().setJSON(id, row);
   return row;
+}
+
+async function getConfiguration(id: string) {
+  return store().get(id, { type: "json" });
 }
 
 async function listConfigurations(limit = 50) {
@@ -83,6 +98,12 @@ export default async (request: Request) => {
   if (request.method === "GET") {
     try {
       const url = new URL(request.url);
+      const id = (url.searchParams.get("id") || "").trim();
+      if (id) {
+        const row = await getConfiguration(id);
+        if (!row) return json({ error: "Not found." }, 404);
+        return json(row);
+      }
       const limit = Math.min(Number(url.searchParams.get("limit")) || 50, 200);
       return json(await listConfigurations(limit));
     } catch (err) {
@@ -92,18 +113,18 @@ export default async (request: Request) => {
   }
 
   if (request.method === "POST") {
-    let body: { buildCode?: string; price?: number; spec?: string; state?: unknown } = {};
+    let body: { buildCode?: string; price?: number; spec?: string; state?: unknown; job?: string; wo?: string; so?: string } = {};
     try {
       body = await request.json();
     } catch {
       return json({ error: "Malformed JSON body." }, 400);
     }
-    const { buildCode, price, spec, state } = body;
+    const { buildCode, price, spec, state, job, wo, so } = body;
     if (!buildCode || typeof price !== "number" || !spec || !state) {
       return json({ error: "Expected { buildCode: string, price: number, spec: string, state: object }." }, 400);
     }
     try {
-      return json(await saveConfiguration({ buildCode, price, spec, state }), 201);
+      return json(await saveConfiguration({ buildCode, price, spec, state, job, wo, so }), 201);
     } catch (err) {
       console.error("[Blobs] save failed:", err);
       return json({ error: "Could not save configuration." }, 500);
