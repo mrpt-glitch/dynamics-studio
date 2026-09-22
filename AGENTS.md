@@ -18,11 +18,12 @@ this repo.
   Add SKUs here, not by hardcoding into index.html.
 - `access.html` + `netlify/edge-functions/access.ts` + `.../gate.ts` — the
   login system. Working. Leave it alone unless the login itself is the task
-  — several other things (including the new save feature below) depend on
-  its session cookie exactly as-is.
-- `netlify/edge-functions/configurations.ts` + `saved.html` — saving and
-  viewing configurations, backed by Netlify Blobs. New as of the entry
-  below.
+  — several other things (including save) depend on its session cookie
+  exactly as-is.
+- `netlify/functions/configurations.ts` + `saved.html` + `package.json` —
+  saving and viewing configurations, backed by Netlify Blobs. Save is a
+  Netlify Function (not Edge) so `@netlify/blobs` installs from package.json.
+  Path is still `/api/configurations`.
 
 ## Ground rules
 
@@ -42,6 +43,16 @@ this repo.
 ## Recent changes
 
 _(newest first)_
+
+### 2026-09-21 19:00 CDT — Grok
+Deploy was failing: Edge bundler could not resolve `@netlify/blobs`
+(experimental npm-in-edge, and no package.json in the repo).
+Moved save from `netlify/edge-functions/configurations.ts` to
+`netlify/functions/configurations.ts` so Blobs uses the Functions runtime.
+Added `package.json` with `@netlify/blobs`. Path stays `/api/configurations`.
+Login (`access.html`, `access.ts`, `gate.ts`) and `index.html` not touched.
+Delete the old edge `configurations.ts` in the same change set or the Edge
+bundler will keep failing.
 
 ### 2026-09-21 evening — Grok
 Shop size and ticket cleanup on `index.html` only. Login / gate / access
