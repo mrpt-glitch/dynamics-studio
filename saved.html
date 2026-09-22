@@ -22,6 +22,7 @@
         .spec { color: var(--muted); font-size: 12px; margin-top: 4px; max-width: 560px; }
         .meta { color: var(--muted); font-size: 11px; margin-top: 4px; }
         .open { font-size: 12px; font-weight: 650; color: var(--accent); white-space: nowrap; }
+        .del { margin-top: 8px; border: 0; background: none; color: #b42318; font: 650 11px "DM Sans", sans-serif; cursor: pointer; }
         .time { color: var(--muted); font-size: 11px; white-space: nowrap; margin-top: 4px; }
         .empty, .error { color: var(--muted); text-align: center; padding: 60px 0; font-size: 13px; }
         .error { color: #b42318; }
@@ -73,9 +74,23 @@
                         <div style="text-align:right;">
                             <div class="open">Open in studio</div>
                             <div class="time">${timeAgo(row.created_at)}</div>
+                            <button class="del" type="button" data-del="${esc(row.id)}" data-code="${esc(row.build_code)}">Delete</button>
                         </div>
                     </a>`;
                 }).join('');
+                list.querySelectorAll('[data-del]').forEach((btn) => {
+                    btn.addEventListener('click', async (ev) => {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        const id = btn.getAttribute('data-del');
+                        const code = btn.getAttribute('data-code') || id;
+                        if (!id || !confirm('Delete ' + code + '?')) return;
+                        const res = await fetch('/api/configurations?id=' + encodeURIComponent(id), { method: 'DELETE' });
+                        if (res.status === 401) { window.location.replace('/access.html'); return; }
+                        if (!res.ok) { alert('Could not delete.'); return; }
+                        load();
+                    });
+                });
             } catch (err) {
                 console.error('[Saved] could not load:', err);
                 list.innerHTML = '<p class="error">Could not load saved configurations.</p>';

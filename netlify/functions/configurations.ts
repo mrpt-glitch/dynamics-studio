@@ -1,10 +1,5 @@
 import { getStore } from "@netlify/blobs";
 
-// Save lives in a Netlify Function (not an Edge Function) so @netlify/blobs
-// can be installed from package.json. Edge bundling of npm modules is
-// experimental and was failing deploys with "Could not resolve @netlify/blobs".
-// Path stays /api/configurations so index.html and saved.html do not change.
-
 function store() {
   return getStore("configurations");
 }
@@ -36,6 +31,10 @@ async function saveConfiguration(data: {
 
 async function getConfiguration(id: string) {
   return store().get(id, { type: "json" });
+}
+
+async function deleteConfiguration(id: string) {
+  await store().delete(id);
 }
 
 async function listConfigurations(limit = 50) {
@@ -128,6 +127,21 @@ export default async (request: Request) => {
     } catch (err) {
       console.error("[Blobs] save failed:", err);
       return json({ error: "Could not save configuration." }, 500);
+    }
+  }
+
+  if (request.method === "DELETE") {
+    try {
+      const url = new URL(request.url);
+      const id = (url.searchParams.get("id") || "").trim();
+      if (!id) return json({ error: "Missing id." }, 400);
+      const existing = await getConfiguration(id);
+      if (!existing) return json({ error: "Not found." }, 404);
+      await deleteConfiguration(id);
+      return json({ ok: true, id });
+    } catch (err) {
+      console.error("[Blobs] delete failed:", err);
+      return json({ error: "Could not delete configuration." }, 500);
     }
   }
 
