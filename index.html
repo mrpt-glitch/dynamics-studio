@@ -3477,6 +3477,9 @@ updateSummary();
             const spec = snap.size || snap.spec || buildCode;
             const rawPrice = (document.getElementById('price') || {}).textContent || '';
             const price = Number(String(rawPrice).replace(/[^0-9.]/g, '')) || 0;
+            const job = (document.getElementById('wo-jobname') || {}).value || snap.jobname || '';
+            const wo = (document.getElementById('wo-num') || {}).value || snap.wo || '';
+            const so = (document.getElementById('so-num') || {}).value || snap.so || '';
             if (!buildCode || !spec) {
                 showToast('Finish the unit spec before saving.');
                 return;
@@ -3490,6 +3493,9 @@ updateSummary();
                         buildCode,
                         price,
                         spec,
+                        job,
+                        wo,
+                        so,
                         state: { unit: state, quote: snap }
                     })
                 });
@@ -3670,6 +3676,78 @@ updateSummary();
 
         rebuild();
         animate();
+
+        function setField(id, value) {
+            const el = document.getElementById(id);
+            if (el && value != null && value !== '') el.value = value;
+        }
+        function syncButtonsFromState() {
+            const pairs = [
+                ['door-width', 'doorWidthIn'], ['door-height', 'doorHeightIn'], ['door-thick', 'doorThickIn'],
+                ['hand', 'hand'], ['swing', 'swing'], ['style', 'style'], ['finish', 'finish'],
+                ['sidelight', 'sidelights'], ['glass', 'glass'], ['hardware', 'hardware'],
+                ['hinge', 'hingeType'], ['hinge-size', 'hingeSize'], ['hinge-finish', 'hingeFinish'],
+                ['jamb', 'jambFinish'], ['jamb-width', 'jambWidthIn'], ['brickmould', 'brickmould'],
+                ['clad-profile', 'claddingProfile'], ['clad-color', 'claddingColor'], ['clad-width', 'cladWidthIn'],
+                ['sill', 'sillFinish'], ['sill-type', 'sillType'], ['sweep', 'sweep'],
+                ['weatherstrip', 'weatherstrip'], ['ws-reach', 'weatherstripReach'],
+                ['stock', 'stockType'], ['lite', 'doorLite'], ['lite-frame', 'liteFrame'],
+                ['lite-color', 'liteFrameColor'], ['ast-type', 'astragalType'], ['ast-color', 'astragalColor'],
+                ['ast-prep', 'astragalPrep'], ['bore-size', 'boreSizeIn']
+            ];
+            pairs.forEach(([dataKey, stateKey]) => {
+                document.querySelectorAll('[data-' + dataKey + ']').forEach((btn) => {
+                    btn.classList.toggle('active', String(btn.getAttribute('data-' + dataKey)) === String(state[stateKey]));
+                });
+            });
+            const mode = state.slabOnly ? 'slab' : state.frameOnly ? 'frame' : 'full';
+            document.querySelectorAll('[data-unit-mode]').forEach((btn) => btn.classList.toggle('active', btn.getAttribute('data-unit-mode') === mode));
+            document.querySelectorAll('[data-toggle]').forEach((btn) => {
+                const key = btn.getAttribute('data-toggle');
+                if (key && key in state) btn.classList.toggle('active', !!state[key]);
+            });
+            if (typeof renderStyleLibrary === 'function') renderStyleLibrary();
+            if (typeof syncSizeButtons === 'function') syncSizeButtons();
+            if (typeof syncStockUi === 'function') syncStockUi();
+            if (typeof syncUnitModeUi === 'function') syncUnitModeUi();
+        }
+        async function loadSavedFromQuery() {
+            const id = new URLSearchParams(window.location.search).get('id');
+            if (!id) return;
+            try {
+                const response = await fetch('/api/configurations?id=' + encodeURIComponent(id));
+                if (response.status === 401) { window.location.replace('/access.html'); return; }
+                if (!response.ok) { showToast('Could not open that configuration.'); return; }
+                const row = await response.json();
+                const unit = (row.state && row.state.unit) || row.state || {};
+                Object.keys(state).forEach((key) => {
+                    if (unit[key] !== undefined) state[key] = unit[key];
+                });
+                const quote = (row.state && row.state.quote) || {};
+                setField('wo-num', row.wo || quote.wo);
+                setField('so-num', row.so || quote.so);
+                setField('wo-req', quote.req);
+                setField('wo-odate', quote.odate);
+                setField('wo-otime', quote.otime);
+                setField('wo-jobname', row.job || quote.jobname);
+                setField('wo-jobaddr', quote.jobaddr);
+                setField('wo-jobref', quote.jobref);
+                setField('wo-rep', quote.rep);
+                setField('wo-taken', quote.taken);
+                setField('wo-phone', quote.tphone);
+                setField('shop-notes', quote.notes);
+                syncButtonsFromState();
+                rebuild();
+                if (typeof frameDoor === 'function') frameDoor();
+                walkUnlocked = WALK_STEPS.length - 1;
+                showPanel('review');
+                showToast('Opened ' + (row.build_code || id) + '.');
+            } catch (err) {
+                console.error('[Open saved]', err);
+                showToast('Could not open that configuration.');
+            }
+        }
+        loadSavedFromQuery();
 
         function handleResize() {
             const width = container.clientWidth;
