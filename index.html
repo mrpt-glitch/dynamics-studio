@@ -1082,6 +1082,7 @@
                         <button class="primary" id="finalize">Save configuration</button>
                         <button class="secondary" id="print-quote" type="button">Print shop ticket</button>
                     </div>
+                    <p class="review-note"><a href="/saved.html">View saved configurations</a></p>
                     <p class="review-note">Slabs supplied through Simpson Door Company &amp; Therma-Tru · Jamb, mull &amp; brickmould components through Quanex</p>
                 </section>
                 
@@ -3462,10 +3463,53 @@ updateSummary();
             doorToggle.setAttribute('aria-pressed', String(isOpen));
             doorToggle.textContent = isOpen ? 'Close door' : 'Open door';
         });
-        document.getElementById('finalize').addEventListener('click', () => {
+        function showToast(message) {
             const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.textContent = message;
             toast.classList.add('show');
             window.setTimeout(() => toast.classList.remove('show'), 2800);
+        }
+        document.getElementById('finalize').addEventListener('click', async () => {
+            const btn = document.getElementById('finalize');
+            const snap = window.__quoteSnapshot || {};
+            const buildCode = (document.getElementById('build-code') || {}).textContent || snap.code || '';
+            const spec = snap.size || snap.spec || buildCode;
+            const rawPrice = (document.getElementById('price') || {}).textContent || '';
+            const price = Number(String(rawPrice).replace(/[^0-9.]/g, '')) || 0;
+            if (!buildCode || !spec) {
+                showToast('Finish the unit spec before saving.');
+                return;
+            }
+            if (btn) { btn.disabled = true; btn.textContent = 'Saving…'; }
+            try {
+                const response = await fetch('/api/configurations', {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({
+                        buildCode,
+                        price,
+                        spec,
+                        state: { unit: state, quote: snap }
+                    })
+                });
+                if (response.status === 401) {
+                    showToast('Sign in again to save.');
+                    window.setTimeout(() => { window.location.href = '/access.html'; }, 800);
+                    return;
+                }
+                const body = await response.json().catch(() => ({}));
+                if (!response.ok) {
+                    showToast(body.error || 'Could not save configuration.');
+                    return;
+                }
+                showToast('Saved ' + (body.build_code || buildCode) + '.');
+            } catch (err) {
+                console.error('[Save]', err);
+                showToast('Could not save configuration.');
+            } finally {
+                if (btn) { btn.disabled = false; btn.textContent = 'Save configuration'; }
+            }
         });
         const printQuote = document.getElementById('print-quote');
         if (printQuote) printQuote.addEventListener('click', () => {
